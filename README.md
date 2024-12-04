@@ -1,1 +1,1 @@
-# go win-hid
+# hidapi for golang on windows
