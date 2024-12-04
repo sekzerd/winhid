@@ -3,37 +3,35 @@ package main
 import (
 	"fmt"
 
-	"github.com/sekzerd/go-winhid/hidapi"
+	"github.com/sekzerd/winhid/hidapi"
 )
 
 func main() {
-	fmt.Println("start hid_init")
-	r := hidapi.Hid_init()
-	fmt.Println("end hid_init")
-
+	r := hidapi.HidInit()
 	if r != nil {
 		panic(r)
 	}
-	s, err := hidapi.Hid_enumerate(0, 0)
+
+	s, err := hidapi.HidEnumerate(0, 0)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("len:%d", len(s))
 
 	for _, v := range s {
-		fmt.Printf("path:%s\n", v.path)
-		fmt.Printf("vendor_id:%d\n", v.vendor_id)
-		fmt.Printf("product_id:%d\n", v.product_id)
-		fmt.Printf("serial_number:%s\n", v.serial_number)
-		fmt.Printf("release_number:%d\n", v.release_number)
-		fmt.Printf("manufacturer_string:%s\n", v.manufacturer_string)
-		fmt.Printf("product_string:%s\n", v.product_string)
-		fmt.Printf("usage_page:%d\n", v.usage_page)
-		fmt.Printf("usage:%d\n", v.usage)
-		fmt.Printf("interface_number:%d\n", v.interface_number)
-		fmt.Printf("output_report_length:%d\n", v.output_report_length)
-		fmt.Printf("input_report_length:%d\n", v.input_report_length)
-		fmt.Printf("feature_report_length:%d\n", v.feature_report_length)
-		fmt.Printf("device_version_number:%d\n", v.device_version_number)
+		fmt.Printf("Path:%s\n", v.Path)
+		fmt.Printf("VendorId:%d\n", v.VendorId)
+		fmt.Printf("ProductId:%d\n", v.ProductId)
+		fmt.Printf("SerialNumber:%s\n", v.SerialNumber)
+		fmt.Printf("ReleaseNumber:%d\n", v.ReleaseNumber)
+		fmt.Printf("ManufacturerString:%s\n", v.ManufacturerString)
+		fmt.Printf("ProductString:%s\n", v.ProductString)
+		fmt.Printf("UsagePage:%d\n", v.UsagePage)
+		fmt.Printf("Usage:%d\n", v.Usage)
+		fmt.Printf("InterfaceNumber:%d\n", v.InterfaceNumber)
+		fmt.Printf("OutputReportLength:%d\n", v.OutputReportLength)
+		fmt.Printf("InputReportLength:%d\n", v.InputReportLength)
+		fmt.Printf("FeatureReportLength:%d\n", v.FeatureReportLength)
+		fmt.Printf("DeviceVersionNumber:%d\n", v.DeviceVersionNumber)
 	}
 }

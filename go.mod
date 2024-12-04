@@ -1,4 +1,4 @@
-module github.com/sekzerd/go-winhid.git
+module github.com/sekzerd/winhid
 
 go 1.23.3
 
