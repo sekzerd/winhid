@@ -1,4 +1,4 @@
-module github.com/sekzerd/winhid
+module github.com/sekzerd/hidapi
 
 go 1.23.3
 
